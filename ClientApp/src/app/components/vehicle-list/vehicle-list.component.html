@@ -1,0 +1,38 @@
+<h1 id="tableLabel">Vehicles</h1>
+<a class="btn btn-primary" [routerLink]="['/vehicles/new']">New Vehicle</a>
+<div class ="card card-body bg-light">
+  <div class="form-group">
+    <label for="MakeId">Make</label>
+    <select name="MakeId" id="MakeId" class="form-control" [(ngModel)]="query.makeId" (change)="onFilterChange()">
+      <option value=""></option>
+      <option *ngFor="let m of makes" [value]="m.id">{{m.name}}</option>
+    </select>
+  </div>  
+  <div class="row">
+    <div class="col-md-4">
+      <button type="button" class="btn btn-outline-secondary btn-md" (click)="onFilterReset()">Reset</button>  
+    </div>
+  </div> 
+</div>
+
+<table class='table table-striped' aria-labelledby="tableLabel">
+  <thead>
+    <tr>
+      <th *ngFor="let c of columns" (click)="sortBy(c.key)">{{c.title}}
+        <i *ngIf="query.sortBy === c.key" class="fa"
+        [class.fa-sort-asc]="query.isSortAscending" [class.fa-sort-desc]="!query.isSortAscending"></i>
+      </th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let vehicle of queryResult.items">
+      <td>{{ vehicle.id }}</td>
+      <td>{{ vehicle.make.name }}</td>
+      <td>{{ vehicle.model.name }}</td>
+      <td>{{ vehicle.contact.contactName }}</td>
+      <td><a [routerLink]="['/vehicles/'+vehicle.id]">View</a></td>
+    </tr>
+  </tbody>
+</table>
+<pagination [total-items]="queryResult.totalItems" [page-size]="query.pageSize" (page-changed)="onPageChange($event)"></pagination>
