@@ -38,14 +38,16 @@ $ dotnet watch run
 
 ## Technologies
 * C#
-* APS.NET Core 3.1
+* ASP.NET Core 3.1
 * Entity Framework Core 3.1.9
 * TypeScript 4.0.3
 * Angular 10
 * Bootstrap 4
 * SQL Server 2016
+* Authentication and Authorization using Auth0 and JWTs
 * [AutoMapper](http://automapper.org/) - For mapping
 * [ngx-toastr](https://www.npmjs.com/package/ngx-toastr) - For growl-style alerts and messages
 * [raven-js](https://www.npmjs.com/package/raven-js) - For automatically reporting uncaught JavaScript exceptions triggered from a browser and sending them to Sentry
 * [Font-Awesome](https://fontawesome.com/) - For pictographic icons
+* [Auth0 Angular SDK](https://www.npmjs.com/package/@auth0/auth0-angular) - For integrating Auth0 into the Angular application
 
